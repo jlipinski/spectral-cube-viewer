@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "spectral-cube-viewer"
+dynamic = ["version"]
+description = "Interactive moment-0 maps, spectra, baseline correction and (hyperfine) line fitting for radio spectral-line FITS cubes"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Jakub Lipiński" }]
+requires-python = ">=3.9"
+keywords = ["astronomy", "radio astronomy", "spectral cube", "moment map", "hyperfine", "line fitting", "FITS"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Astronomy",
+]
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+    "astropy>=5.0",
+    "spectral-cube>=0.6",
+    "matplotlib>=3.5",
+    "PyQt5>=5.15",
+    "psutil",
+]
+
+[project.optional-dependencies]
+online = ["astroquery>=0.4.7"]                  # Splatalogue line markers
+catalog = ["astroquery>=0.4.7", "pyspeckit"]    # rebuilding the offline line catalog
+test = ["pytest>=7"]
+
+[project.gui-scripts]
+spectral-cube-viewer = "spectral_cube_viewer.gui:main"
+
+[project.urls]
+Homepage = "https://github.com/jlipinski/spectral-cube-viewer"
+Issues = "https://github.com/jlipinski/spectral-cube-viewer/issues"
+
+[tool.setuptools.dynamic]
+version = { attr = "spectral_cube_viewer.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+spectral_cube_viewer = ["data/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["network: needs an internet connection (run with RUN_NETWORK_TESTS=1)"]

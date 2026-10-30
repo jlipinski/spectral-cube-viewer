@@ -1,0 +1,21 @@
+# conda alternative to pip (recommended on Apple-silicon Macs if `pip install PyQt5` fails):
+#   conda env create -f environment.yml
+#   conda activate spectral-cube-viewer
+#   spectral-cube-viewer
+name: spectral-cube-viewer
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.9
+  - numpy>=1.21
+  - scipy>=1.7
+  - astropy>=5.0
+  - spectral-cube>=0.6
+  - matplotlib>=3.5
+  - pyqt=5
+  - psutil
+  - astroquery
+  - pytest
+  - pip
+  - pip:
+      - -e .
