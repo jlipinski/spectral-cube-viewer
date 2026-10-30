@@ -14,7 +14,7 @@ It was written for TRAO and PMO data. It works with any cube that has a celestia
 
 ## Installation
 
-You need Python 3.9 or newer. The program runs on Windows, Linux and macOS.
+You need Python 3.10 or newer. The program runs on Windows, Linux and macOS.
 
 **With pipx (recommended).** This installs the program in its own environment and adds a `spectral-cube-viewer` command:
 

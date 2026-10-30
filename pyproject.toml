@@ -9,7 +9,7 @@ description = "Interactive moment-0 maps, spectra, baseline correction and (hype
 readme = "README.md"
 license = { file = "LICENSE" }
 authors = [{ name = "Jakub Lipiński" }]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 keywords = ["astronomy", "radio astronomy", "spectral cube", "moment map", "hyperfine", "line fitting", "FITS"]
 classifiers = [
     "Programming Language :: Python :: 3",
